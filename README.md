@@ -1,2 +1,2 @@
 # gilgamesh-discord
-Basic template discord bot written in the discord.py wrapper.
+Basic open-source discord bot written in the discord.py wrapper.
