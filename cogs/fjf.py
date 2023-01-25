@@ -16,19 +16,19 @@ class FJF(commands.Cog):
 
     @discord.slash_command()
     async def wind(self, ctx):
-        await ctx.respond('Wind: ' + wind_jobs[random.randrange(0, len(wind_jobs)-1)])
+        await ctx.respond('Wind: ' + wind_jobs[random.randrange(0, len(wind_jobs))].title())
 
     @discord.slash_command()
     async def water(self, ctx):
-        await ctx.respond('Water: ' + water_jobs[random.randrange(0, len(water_jobs) - 1)])
+        await ctx.respond('Water: ' + water_jobs[random.randrange(0, len(water_jobs))].title())
 
     @discord.slash_command()
     async def fire(self, ctx):
-        await ctx.respond('Fire: ' + fire_jobs[random.randrange(0, len(fire_jobs) - 1)])
+        await ctx.respond('Fire: ' + fire_jobs[random.randrange(0, len(fire_jobs))].title())
 
     @discord.slash_command()
     async def earth(self, ctx):
-        await ctx.respond('Earth: ' + earth_jobs[random.randrange(0, len(earth_jobs) - 1)])
+        await ctx.respond('Earth: ' + earth_jobs[random.randrange(0, len(earth_jobs))].title())
 
 
 def setup(bot):
