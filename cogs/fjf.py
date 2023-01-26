@@ -14,19 +14,19 @@ class FJF(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @discord.slash_command()
+    @discord.slash_command(description='Roll a Wind crystal job.')
     async def wind(self, ctx):
         await ctx.respond('Wind: ' + wind_jobs[random.randrange(0, len(wind_jobs))].title())
 
-    @discord.slash_command()
+    @discord.slash_command(description='Roll a Water crystal job.')
     async def water(self, ctx):
         await ctx.respond('Water: ' + water_jobs[random.randrange(0, len(water_jobs))].title())
 
-    @discord.slash_command()
+    @discord.slash_command(description='Roll a Fire crystal job.')
     async def fire(self, ctx):
         await ctx.respond('Fire: ' + fire_jobs[random.randrange(0, len(fire_jobs))].title())
 
-    @discord.slash_command()
+    @discord.slash_command(description='Roll an Earth crystal job.')
     async def earth(self, ctx):
         await ctx.respond('Earth: ' + earth_jobs[random.randrange(0, len(earth_jobs))].title())
 
