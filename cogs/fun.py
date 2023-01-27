@@ -10,7 +10,8 @@ class Fun(commands.Cog):
         self.bot = bot
 
     @discord.slash_command(description='Rolls dice.')
-    async def dice(self, ctx, sides: discord.Option(int), amount: discord.Option(int)):
+    async def dice(self, ctx, sides: discord.Option(int),
+                   amount: discord.Option(int)):
         roll = 0
 
         for num in range(amount):
