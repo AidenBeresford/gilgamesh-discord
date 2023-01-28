@@ -2,6 +2,7 @@ import typing
 
 import discord
 from discord.ext import commands
+from discord.ext.commands import errors
 
 
 class Moderation(commands.Cog):
@@ -14,7 +15,7 @@ class Moderation(commands.Cog):
                    reason: str):
         try:
             await member.kick(reason=reason)
-        except PermissionError:
+        except errors.MissingPermissions:
             await ctx.respond("You don't have permission to do that.")
         else:
             await ctx.respond(f'Kicked {member.name} for: {reason}')
@@ -26,7 +27,7 @@ class Moderation(commands.Cog):
                   deletion_days: typing.Optional[int] = 0):
         try:
             await member.ban(delete_message_days=deletion_days, reason=reason)
-        except PermissionError:
+        except errors.MissingPermissions:
             await ctx.respond("You don't have permission to do that.")
         else:
             await ctx.respond(f'Banned {member.name} for: {reason}')
