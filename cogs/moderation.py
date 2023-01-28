@@ -9,17 +9,27 @@ class Moderation(commands.Cog):
         self.bot = bot
 
     @discord.slash_command(description='Kick a user.')
+    @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member,
                    reason: str):
-        await member.kick(reason=reason)
-        await ctx.respond(f'Kicked {member.name} for: {reason}')
+        try:
+            await member.kick(reason=reason)
+        except PermissionError:
+            await ctx.respond("You don't have permission to do that.")
+        else:
+            await ctx.respond(f'Kicked {member.name} for: {reason}')
 
     @discord.slash_command(description='Ban a member.')
+    @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member,
                   reason: str,
                   deletion_days: typing.Optional[int] = 0):
-        await member.ban(delete_message_days=deletion_days, reason=reason)
-        await ctx.respond(f'Banned {member.name} for: {reason}')
+        try:
+            await member.ban(delete_message_days=deletion_days, reason=reason)
+        except PermissionError:
+            await ctx.respond("You don't have permission to do that.")
+        else:
+            await ctx.respond(f'Banned {member.name} for: {reason}')
 
 
 def setup(bot):
