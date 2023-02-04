@@ -41,7 +41,19 @@ class Moderation(commands.Cog):
         except errors.MissingPermissions:
             await ctx.respond("You don't have permission to do that.")
         else:
-            await ctx.respond(f'{member.name} given the {role} role.')
+            await ctx.respond(f'{member} given the {role} role.')
+
+    @discord.slash_command(description='Removes a member a role.')
+    @commands.has_permissions(manage_roles=True)
+    async def unrole(self, ctx, member: discord.Member,
+                     role: discord.Role,
+                     reason: typing.Optional[str] = "None provided."):
+        try:
+            await member.remove_roles(role, reason=reason)
+        except errors.MissingPermissions:
+            await ctx.respond("You don't have permission to do that.")
+        else:
+            await ctx.respond(f'Removed {role} role from user {member} for reason: {reason}')
 
 
 def setup(bot):
