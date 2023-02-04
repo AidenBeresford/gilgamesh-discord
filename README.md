@@ -1,5 +1,5 @@
 ## Gilgamesh Bot
-![build](https://github.com/AidenBeresford/gilgamesh-bot/actions/workflows/python-package.yml/badge.svg)
+![build](https://img.shields.io/appveyor/build/AidenBeresford/gilgamesh-discord)
 
 Gilgamesh Bot is an open-source Python discord bot written using the pycord wrapper.
 
