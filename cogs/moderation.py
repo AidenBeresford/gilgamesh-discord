@@ -15,7 +15,7 @@ class Moderation(commands.Cog):
                    reason: str):
         try:
             await member.kick(reason=reason)
-        except errors.MissingPermissions:
+        except errors.CheckFailure:
             await ctx.respond("You don't have permission to do that.")
         else:
             await ctx.respond(f'Kicked {member.name} for: {reason}')
@@ -27,7 +27,7 @@ class Moderation(commands.Cog):
                   deletion_days: typing.Optional[int] = 0):
         try:
             await member.ban(delete_message_days=deletion_days, reason=reason)
-        except errors.MissingPermissions:
+        except errors.CheckFailure:
             await ctx.respond("You don't have permission to do that.")
         else:
             await ctx.respond(f'Banned {member.name} for: {reason}')
@@ -38,22 +38,32 @@ class Moderation(commands.Cog):
                    role: discord.Role):
         try:
             await member.add_roles(role)
-        except errors.MissingPermissions:
+        except errors.CheckFailure:
             await ctx.respond("You don't have permission to do that.")
         else:
             await ctx.respond(f'{member} given the {role} role.')
 
-    @discord.slash_command(description='Removes a member a role.')
+    @discord.slash_command(description='Removes a members role.')
     @commands.has_permissions(manage_roles=True)
     async def unrole(self, ctx, member: discord.Member,
                      role: discord.Role,
                      reason: typing.Optional[str] = "None provided."):
         try:
             await member.remove_roles(role, reason=reason)
-        except errors.MissingPermissions:
+        except errors.CheckFailure:
             await ctx.respond("You don't have permission to do that.")
         else:
             await ctx.respond(f'Removed {role} role from user {member} for reason: {reason}')
+
+    @discord.slash_command(description='Server mutes a member')
+    @commands.has_guild_permissions(mute_members=True)
+    async def mute(self, ctx, member: discord.Member):
+        try:
+            await member.edit(mute=True)
+        except errors.CheckFailure:
+            await ctx.respond("You don't have permission to do that.")
+        else:
+            await ctx.respond(f'Server muted {member}')
 
 
 def setup(bot):
