@@ -30,8 +30,9 @@ Gilgamesh Bot is an open-source Python discord bot written using the pycord wrap
 
 - Command cogs that can be easily disabled and enabled by even the Python illiterate.
 - Highly customizable and easily tweaked command cogs.
-- Moderation commands for kicking and banning users.
-- Multipurpose miscellaneous functions, i.e. rolling dice.
+- Moderation commands for quick server management.
+- Multipurpose `/role` command, which offers a more specialized way to mute members.
+- Miscellaneous functions, i.e. rolling dice.
 - Four Job Fiesta job generation (For the few Final Fantasy V fans).
 
 #### Wishlist
