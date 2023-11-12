@@ -13,6 +13,7 @@ Gilgamesh Bot is an open-source Python discord bot written using the pycord wrap
 - Run `pip install py-cord` in the command prompt
 - Create a file named "token" in the same folder as main.py and paste your bots token inside
 - Open command prompt in the folder with main.py
+- Run `python main.py` in the command prompt
 
 #### Linux
 
@@ -31,7 +32,7 @@ Gilgamesh Bot is an open-source Python discord bot written using the pycord wrap
 - Command cogs that can be easily disabled and enabled by even the Python illiterate.
 - Highly customizable and easily tweaked command cogs.
 - Moderation commands for quick server management.
-- Multipurpose `/role` command, which offers a more specialized way to mute members.
+- Multipurpose `/role` command, which offers a more modular way to mute members.
 - Miscellaneous functions, i.e. rolling dice.
 - Four Job Fiesta job generation (For the few Final Fantasy V fans).
 
