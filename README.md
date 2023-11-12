@@ -7,6 +7,14 @@ Gilgamesh Bot is an open-source Python discord bot written using the pycord wrap
 
 #### Windows
 
+##### Method 1
+
+- Uninstall Windows
+- Install your preferred Linux distro
+- Move to Linux section
+
+##### Method 2
+
 - Install the latest version of Python 3
 - Install pip
   - Run `pip --version` in the command prompt to check if pip is installed.
